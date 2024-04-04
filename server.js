@@ -38,7 +38,7 @@ app.get('/index', (req, res) => {
 
 // Serve the recipe submission page
 app.get('/submission', (req, res) => {
-    res.sendFile(__dirname + '/submission');
+    res.sendFile(__dirname + '/submission.html');
 });
 
 // Serve the recipes page
@@ -81,4 +81,3 @@ app.listen(port, () => {
     // Open the browser when the server starts
     import('open').then(open => open.default(`http://localhost:${port}`));
 });
-
