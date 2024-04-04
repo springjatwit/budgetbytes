@@ -27,8 +27,8 @@ const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 app.use(express.static('public'));
-app.use(express.static('index.html'));
-// app.use(express.static('about.html'));
+// app.use(express.static('index.html'));
+
 
 
 // Serve the home page
