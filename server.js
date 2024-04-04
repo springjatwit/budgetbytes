@@ -38,7 +38,7 @@ app.get('/index', (req, res) => {
 
 // Serve the recipe submission page
 app.get('/submission', (req, res) => {
-    res.sendFile(__dirname + '/submission.html');
+    res.sendFile(__dirname + '/submission');
 });
 
 // Serve the recipes page
