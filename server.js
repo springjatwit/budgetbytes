@@ -10,10 +10,10 @@ const db = new sqlite3.Database('recipes.db');
 // Set the view engine to EJS
 app.set('view engine', 'ejs');
 
-// Set up the 'views' directory for storing templates
+// Set up the views directory for storing templates
 app.set('views', __dirname);
 
-// Create table if not exists
+// Create table
 db.run(`CREATE TABLE IF NOT EXISTS recipes (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     recipeName TEXT,
@@ -28,11 +28,11 @@ const upload = multer({ storage: storage });
 
 app.use(express.static('public'));
 // app.use(express.static('index.html'));
-
+// app.use(express.static('about.html'));
 
 
 // Serve the home page
-app.get('/', (req, res) => {
+app.get('/index', (req, res) => {
     res.sendFile(__dirname + '/index.html');
 });
 
@@ -40,11 +40,6 @@ app.get('/', (req, res) => {
 app.get('/submission', (req, res) => {
     res.sendFile(__dirname + '/submission.html');
 });
-
-// // Serve the recipe submission page
-// app.get('/about', (req, res) => {
-//     res.sendFile(__dirname + '/about.html');
-// });
 
 // Serve the recipes page
 app.get('/recipes', (req, res) => {
@@ -77,7 +72,7 @@ app.post('/addRecipe', upload.single('picture'), (req, res) => {
 
 // Redirect from root URL to the recipes page
 app.get('/', (req, res) => {
-    res.redirect('/recipes');
+    res.redirect('/index');
 });
 
 app.listen(port, () => {
